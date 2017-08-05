@@ -6,12 +6,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Fractal Trees</title>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
   <link rel="stylesheet" type="text/css" href="./main.css">
 </head>
 
 <body>
-  <input type="range" min="1" max="12" value="1" class="depth" step="1">
-  <input type="range" min="0" max="25" value="25" class="angle" step="1">
+  <div class="controls">
+    <ul>
+      <li>
+        <div class="col-span-3">
+          <label for="depth">Depth</label>
+        </div>
+        <div class="col-span-1">
+          <input type="number" id="depth" value="11" min="1" max="15" autocomplete="off">
+        </div>
+      </li>
+      <li>
+        <div class="col-span-3">
+          <label for="angle">Angle</label>
+        </div>
+        <div class="col-span-1">
+          <input type="number" id="angle" value="30" min="0" max="360" autocomplete="off">
+        </div>
+      </li>
+      <li>
+        <div class="col-span-3">
+          <label for="root-length">Root Length</label>
+        </div>
+        <div class="col-span-1">
+          <input type="number" id="root-length" value="170" min="1" max="200" autocomplete="off">
+        </div>
+      </li>
+      <li>
+        <div class="col-span-3">
+          <label for="shorter-child">Shorter Child Branches</label>
+        </div>
+        <div class="col-span-1">
+          <input type="checkbox" id="shorter-child" checked autocomplete="off">
+        </div>
+      </li>
+      <li>
+        <div class="col-span-3">
+          <label for="root-weight">Root Weight</label>
+        </div>
+        <div class="col-span-1">
+          <input type="number" id="root-weight" value="1" min="1" max="30" autocomplete="off">
+        </div>
+      </li>
+      <li>
+        <div class="col-span-3">
+          <label for="thinner-child">Thinner Child Branches</label>
+        </div>
+        <div class="col-span-1">
+          <input type="checkbox" id="thinner-child" checked autocomplete="off">
+        </div>
+      </li>
+      <li>
+        <div class="col-span-3">
+          <label for="root-colour">Root Colour</label>
+        </div>
+        <div class="col-span-1">
+          <input type="color" id="root-colour" value="#ff81e6" autocomplete="off">
+        </div>
+      </li>
+      <li>
+        <div class="col-span-3">
+          <label for="multi-coloured">Multi-coloured</label>
+        </div>
+        <div class="col-span-1">
+          <input type="checkbox" id="multi-coloured" checked autocomplete="off">
+        </div>
+      </li>
+      <li>
+        <div class="col-span-3">
+          <label for="scale">Scale</label>
+        </div>
+        <div class="col-span-1">
+          <input type="number" id="scale" value="1" min="0.1" max="2.0" step="0.1" autocomplete="off">
+        </div>
+      </li>
+      <li>
+        <div class="col-span-4">
+          <button type="button" class="reset">Reset</button>
+        </div>
+      </li>
+      <li>
+        <div class="col-span-4">
+          <button type="button" class="close">Close Controls</button>
+        </div>
+      </li>
+    </ul>
+  </div>
   <script src="./p5.min.js"></script>
   <script src="./main.js"></script>
 </body>

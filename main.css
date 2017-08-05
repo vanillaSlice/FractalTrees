@@ -109,10 +109,6 @@ section {
   display: block;
 }
 
-body {
-  line-height: 1;
-}
-
 ol,
 ul {
   list-style: none;
@@ -136,18 +132,115 @@ table {
   border-spacing: 0;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   background-color: #1e1e1e;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.6rem;
+  color: #fff;
 }
 
-.depth {
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.controls {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 2rem;
+  background-color: #2d2d30;
+  -webkit-box-shadow: 0 0 1.5rem #000;
+  box-shadow: 0 0 1.5rem #000;
+  width: 30rem;
+  -webkit-transition: -webkit-transform 0.5s ease-in;
+  transition: -webkit-transform 0.5s ease-in;
+  transition: transform 0.5s ease-in;
+  transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
 }
 
-.angle {
-  position: fixed;
-  top: 20px;
-  left: 0;
+.controls li {
+  border-left: solid 0.3rem #007acc;
+  border-bottom: solid 0.1rem #4a4a4c;
+  padding: 0.5rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.controls li:last-child {
+  border: none;
+}
+
+.controls .col-span-1 {
+  width: 25%;
+}
+
+.controls .col-span-2 {
+  width: 50%;
+}
+
+.controls .col-span-3 {
+  width: 75%;
+}
+
+.controls .col-span-4 {
+  width: 100%;
+}
+
+.controls li>div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.controls label {
+  margin: 0 0.5rem;
+}
+
+.controls input {
+  width: 100%;
+  height: 100%;
+  background-color: #3c3c3c;
+  border-color: #3c3c3c;
+  border-style: solid;
+  color: inherit;
+}
+
+.controls input[type='color'] {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.controls input[type='checkbox'] {
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+}
+
+.controls button {
+  margin: 0 auto;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+@media (max-width: 31.25em) {
+  .controls {
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
 }
