@@ -228,10 +228,10 @@ function closeControls() {
   if (controlsOpen) {
     const lastLi = controls.querySelector('ul li:last-child');
     controls.style.transform = `translateY(-${lastLi.offsetTop}px)`;
-    closeControls.textContent = 'Open Controls';
+    closeControlsButton.textContent = 'Open Controls';
   } else {
     controls.style.transform = 'translateY(0px)';
-    closeControls.textContent = 'Close Controls';
+    closeControlsButton.textContent = 'Close Controls';
   }
   controlsOpen = !controlsOpen;
 }
