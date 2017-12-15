@@ -1,246 +1,132 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-
-/* HTML5 display-role reset for older browsers */
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+/*
+ * General styles.
+ */
 
 html {
   font-size: 62.5%;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
   background-color: #1e1e1e;
+  color: #fff;
   font-family: 'Raleway', sans-serif;
   font-size: 1.6rem;
-  color: #fff;
+  height: 100%;
+  line-height: initial;
 }
 
-* {
+*,
+*::before,
+*::after {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.controls {
-  position: fixed;
-  top: 0;
-  right: 2rem;
-  background-color: #2d2d30;
-  -webkit-box-shadow: 0 0 1.5rem #000;
-  box-shadow: 0 0 1.5rem #000;
-  width: 30rem;
-  -webkit-transition: -webkit-transform 0.5s ease-in;
-  transition: -webkit-transform 0.5s ease-in;
-  transition: transform 0.5s ease-in;
-  transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
-}
 
-.controls li {
-  border-left: solid 0.3rem #007acc;
-  border-bottom: solid 0.1rem #4a4a4c;
-  padding: 0.5rem;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
+/*
+ * Helpers.
+ */
 
-.controls li:last-child {
-  border: none;
-}
-
-.controls .col-span-1 {
+.col-span-1 {
   width: 25%;
 }
 
-.controls .col-span-2 {
+.col-span-2 {
   width: 50%;
 }
 
-.controls .col-span-3 {
+.col-span-3 {
   width: 75%;
 }
 
-.controls .col-span-4 {
+.col-span-4 {
   width: 100%;
 }
 
-.controls li>div {
+.flex {
+  -ms-flex-line-pack: center;
+       align-content: center;
+  -webkit-box-align: center;
+     -ms-flex-align: center;
+        align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
-.controls label {
+
+/*
+ * Specific styles.
+ */
+
+.controls {
+  background-color: #2d2d30;
+  -webkit-box-shadow: 0 0 1.5rem #000;
+          box-shadow: 0 0 1.5rem #000;
+  left: 0;
+  position: fixed;
+  top: 0;
+  -webkit-transition: -webkit-transform 0.5s ease-in;
+          transition: -webkit-transform 0.5s ease-in;
+          transition: transform 0.5s ease-in;
+          transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
+  width: 100%;
+}
+
+@media (min-width: 31.25em) {
+  .controls {
+    left: initial;
+    right: 2rem;
+    width: 30rem;
+  }
+}
+
+.control {
+  border-bottom: solid 0.1rem #4a4a4c;
+  border-left: solid 0.3rem #007acc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.control:last-child {
+  border: none;
+}
+
+.label {
   margin: 0 0.5rem;
 }
 
-.controls input {
-  width: 100%;
-  height: 100%;
+.input {
   background-color: #3c3c3c;
   border-color: #3c3c3c;
   border-style: solid;
   color: inherit;
+  height: 100%;
+  width: 100%;
 }
 
-.controls input[type='color'] {
+.colour {
   background: none;
   border: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-.controls input[type='checkbox'] {
-  width: auto;
+.checkbox {
   height: auto;
   margin: 0 auto;
+  width: auto;
 }
 
-.controls button {
-  margin: 0 auto;
-  color: inherit;
+.btn {
   background-color: transparent;
-  cursor: pointer;
   border: none;
-}
-
-@media (max-width: 31.25em) {
-  .controls {
-    width: 100%;
-    top: 0;
-    left: 0;
-  }
+  color: inherit;
+  cursor: pointer;
+  margin: 0 auto;  
 }
