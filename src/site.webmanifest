@@ -1,5 +1,6 @@
 {
   "name": "Fractal Trees",
+  "short_name": "Fractal Trees",
   "icons": [{
       "src": "./android-chrome-192x192.png",
       "sizes": "192x192",

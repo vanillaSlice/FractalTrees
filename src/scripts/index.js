@@ -1,5 +1,5 @@
 /*
- * Elements 
+ * Elements
  */
 
 const controls = document.querySelector('.controls');
@@ -16,8 +16,9 @@ const resetContol = controls.querySelector('.reset');
 const closeControlsButton = controls.querySelector('.close');
 
 /*
- * Properties 
+ * Properties
  */
+
 const backgroundColour = [0, 0, 11.8];
 const minDepth = 1;
 const maxDepth = 15;
@@ -44,38 +45,13 @@ const defaultScale = 1;
 let controlsOpen = true;
 
 /*
- * Functions 
+ * Functions
  */
-
-function setup() {
-  createCanvas(innerWidth, innerHeight);
-  colorMode(HSL);
-  angleMode(DEGREES);
-  drawTree();
-}
-
-const drawTree = debounce(() => {
-  background(backgroundColour);
-  translate(width / 2, height);
-  scale(parseFloat(scaleControl.value));
-  const currentDepth = 0;
-  const maxDepth = parseInt(depthControl.value);
-  const angle = parseInt(angleControl.value);
-  const length = parseInt(rootLengthControl.value);
-  const shorterChild = shorterChildControl.checked;
-  const weight = parseInt(rootWeightControl.value);
-  const thinnerChild = thinnerChildControl.checked;
-  const [hue, saturation, lightness] = hexToHsl(rootColourControl.value);
-  const multiColoured = multiColouredControl.checked;
-  branch(currentDepth, maxDepth, angle, length, shorterChild,
-    weight, thinnerChild, hue, saturation, lightness, multiColoured);
-}, 100);
 
 function debounce(func, wait, immediate) {
   let timeout;
-  return () => {
+  return (...args) => {
     const context = this;
-    const args = arguments;
     const later = () => {
       timeout = null;
       if (!immediate) {
@@ -88,11 +64,11 @@ function debounce(func, wait, immediate) {
     if (callNow) {
       func.apply(context, args);
     }
-  }
+  };
 }
 
-function hexToHsl(hex) {
-  hex = hex.replace('#', '');
+function hexToHsl(hx) {
+  const hex = hx.replace('#', '');
   const r = parseInt(hex.substring(0, 2), 16) / 255;
   const g = parseInt(hex.substring(2, 4), 16) / 255;
   const b = parseInt(hex.substring(4, 6), 16) / 255;
@@ -100,7 +76,7 @@ function hexToHsl(hex) {
   const min = Math.min(r, g, b);
   let h = 0;
   let s = 0;
-  let l = (max + min) / 2;
+  const l = (max + min) / 2;
   if (max !== min) {
     const d = max - min;
     s = (l > 0.5) ? d / (2 - max - min) : d / (max + min);
@@ -114,20 +90,26 @@ function hexToHsl(hex) {
       case b:
         h = (r - g) / d + 4;
         break;
+      default:
+        break;
     }
     h /= 6;
   }
   return [h * 360, s * 100, l * 100];
 }
 
-function branch(currentDepth, maxDepth, angle, length, shorterChild, weight,
-  thinnerChild, hue, saturation, lightness, multiColoured) {
+function branch(cd, md, angle, l, shorterChild, w,
+  thinnerChild, h, saturation, lightness, multiColoured) {
+  let currentDepth = cd;
+  let length = l;
+  let weight = w;
+  let hue = h;
   strokeWeight(weight);
   stroke(hue, saturation, lightness);
   line(0, 0, 0, -length);
   translate(0, -length);
-  if (currentDepth < maxDepth - 1) {
-    currentDepth++;
+  if (currentDepth < md - 1) {
+    currentDepth += 1;
     if (shorterChild) {
       length *= lengthMultiplier;
     }
@@ -139,16 +121,35 @@ function branch(currentDepth, maxDepth, angle, length, shorterChild, weight,
     }
     push();
     rotate(angle);
-    branch(currentDepth, maxDepth, angle, length, shorterChild, weight,
+    branch(currentDepth, md, angle, length, shorterChild, weight,
       thinnerChild, hue, saturation, lightness, multiColoured);
     pop();
     push();
     rotate(-angle);
-    branch(currentDepth, maxDepth, angle, length, shorterChild, weight,
+    branch(currentDepth, md, angle, length, shorterChild, weight,
       thinnerChild, hue, saturation, lightness, multiColoured);
     pop();
   }
 }
+
+const drawTree = debounce(() => {
+  resizeCanvas(window.innerWidth, window.innerHeight);
+
+  background(backgroundColour);
+  translate(width / 2, height);
+  scale(parseFloat(scaleControl.value));
+  const currentDepth = 0;
+  const md = parseInt(depthControl.value, 10);
+  const angle = parseInt(angleControl.value, 10);
+  const length = parseInt(rootLengthControl.value, 10);
+  const shorterChild = shorterChildControl.checked;
+  const weight = parseInt(rootWeightControl.value, 10);
+  const thinnerChild = thinnerChildControl.checked;
+  const [hue, saturation, lightness] = hexToHsl(rootColourControl.value);
+  const multiColoured = multiColouredControl.checked;
+  branch(currentDepth, md, angle, length, shorterChild,
+    weight, thinnerChild, hue, saturation, lightness, multiColoured);
+}, 100);
 
 function updateDepth() {
   if (depthControl.value < minDepth) {
@@ -236,13 +237,8 @@ function closeControls() {
   controlsOpen = !controlsOpen;
 }
 
-function windowResized() {
-  resizeCanvas(innerWidth, innerHeight);
-  drawTree();
-}
-
 /*
- * Event listeners 
+ * Event listeners
  */
 
 depthControl.addEventListener('change', updateDepth);
@@ -256,3 +252,12 @@ multiColouredControl.addEventListener('change', drawTree);
 scaleControl.addEventListener('change', updateScale);
 resetContol.addEventListener('click', reset);
 closeControlsButton.addEventListener('click', closeControls);
+
+window.setup = () => {
+  createCanvas(window.innerWidth, window.innerHeight);
+  colorMode(HSL);
+  angleMode(DEGREES);
+  drawTree();
+};
+
+window.windowResized = drawTree;
