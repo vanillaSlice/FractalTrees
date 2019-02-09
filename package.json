@@ -29,6 +29,9 @@
     "start": "parcel src/index.html -d build",
     "build": "parcel build src/index.html -d build --public-url ./"
   },
+  "dependencies": {
+    "lodash": "^4.17.11"
+  },
   "devDependencies": {
     "acorn": "^6.1.0",
     "autoprefixer": "^9.4.7",

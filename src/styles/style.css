@@ -1,6 +1,8 @@
-/*
- * General styles.
- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html {
   font-size: 62.5%;
@@ -16,17 +18,6 @@ body {
   height: 100%;
   line-height: initial;
 }
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-
-/*
- * Helpers.
- */
 
 .col-span-1 {
   width: 25%;
@@ -45,48 +36,24 @@ body {
 }
 
 .flex {
-  -ms-flex-line-pack: center;
-       align-content: center;
-  -webkit-box-align: center;
-     -ms-flex-align: center;
-        align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  align-content: center;
+  align-items: center;
   display: flex;
 }
 
-
-/*
- * Specific styles.
- */
-
 .controls {
   background-color: #2d2d30;
-  -webkit-box-shadow: 0 0 1.5rem #000;
-          box-shadow: 0 0 1.5rem #000;
+  box-shadow: 0 0 1.5rem #000;
   left: 0;
   position: fixed;
   top: 0;
-  -webkit-transition: -webkit-transform 0.5s ease-in;
-          transition: -webkit-transform 0.5s ease-in;
-          transition: transform 0.5s ease-in;
-          transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
+  transition: transform 0.5s ease-in;
   width: 100%;
-}
-
-@media (min-width: 31.25em) {
-  .controls {
-    left: initial;
-    right: 2rem;
-    width: 30rem;
-  }
 }
 
 .control {
   border-bottom: solid 0.1rem #4a4a4c;
   border-left: solid 0.3rem #007acc;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding: 0.5rem;
   width: 100%;
@@ -109,6 +76,12 @@ body {
   width: 100%;
 }
 
+.checkbox {
+  height: auto;
+  margin: 0 auto;
+  width: auto;
+}
+
 .colour {
   background: none;
   border: none;
@@ -116,16 +89,18 @@ body {
   padding: 0;
 }
 
-.checkbox {
-  height: auto;
-  margin: 0 auto;
-  width: auto;
-}
-
 .btn {
   background-color: transparent;
   border: none;
   color: inherit;
   cursor: pointer;
-  margin: 0 auto;  
+  margin: 0 auto;
+}
+
+@media (min-width: 31.25em) {
+  .controls {
+    left: initial;
+    right: 2rem;
+    width: 30rem;
+  }
 }

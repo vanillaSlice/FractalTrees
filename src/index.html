@@ -24,13 +24,13 @@
 </head>
 
 <body>
-  <ul class="controls">
+  <ul class="controls js-controls">
     <li class="control">
       <div class="col-span-3 flex">
         <label class="label" for="depth">Depth</label>
       </div>
       <div class="col-span-1 flex">
-        <input class="input" type="number" id="depth" value="11" min="1" max="15" autocomplete="off">
+        <input class="input js-depth" type="number" id="depth" value="11" min="1" max="15" autocomplete="off">
       </div>
     </li>
     <li class="control">
@@ -38,7 +38,7 @@
         <label class="label" for="angle">Angle</label>
       </div>
       <div class="col-span-1 flex">
-        <input class="input" type="number" id="angle" value="30" min="0" max="360" autocomplete="off">
+        <input class="input js-angle" type="number" id="angle" value="30" min="0" max="360" autocomplete="off">
       </div>
     </li>
     <li class="control">
@@ -46,7 +46,7 @@
         <label class="label" for="root-length">Root Length</label>
       </div>
       <div class="col-span-1 flex">
-        <input class="input" type="number" id="root-length" value="170" min="1" max="200" autocomplete="off">
+        <input class="input js-root-length" type="number" id="root-length" value="170" min="1" max="200" autocomplete="off">
       </div>
     </li>
     <li class="control">
@@ -54,7 +54,7 @@
         <label class="label" for="shorter-child">Shorter Child Branches</label>
       </div>
       <div class="col-span-1 flex">
-        <input class="input checkbox" type="checkbox" id="shorter-child" checked autocomplete="off">
+        <input class="input checkbox js-shorter-child" type="checkbox" id="shorter-child" checked autocomplete="off">
       </div>
     </li>
     <li class="control">
@@ -62,7 +62,7 @@
         <label class="label" for="root-weight">Root Weight</label>
       </div>
       <div class="col-span-1 flex">
-        <input class="input" type="number" id="root-weight" value="1" min="1" max="30" autocomplete="off">
+        <input class="input js-root-weight" type="number" id="root-weight" value="1" min="1" max="30" autocomplete="off">
       </div>
     </li>
     <li class="control">
@@ -70,7 +70,7 @@
         <label class="label" for="thinner-child">Thinner Child Branches</label>
       </div>
       <div class="col-span-1 flex">
-        <input class="input checkbox" type="checkbox" id="thinner-child" checked autocomplete="off">
+        <input class="input checkbox js-thinner-child" type="checkbox" id="thinner-child" checked autocomplete="off">
       </div>
     </li>
     <li class="control">
@@ -78,7 +78,7 @@
         <label class="label" for="root-colour">Root Colour</label>
       </div>
       <div class="col-span-1 flex">
-        <input class="input colour" type="color" id="root-colour" value="#ff81e6" autocomplete="off">
+        <input class="input colour js-root-colour" type="color" id="root-colour" value="#ff81e6" autocomplete="off">
       </div>
     </li>
     <li class="control">
@@ -86,7 +86,7 @@
         <label class="label" for="multi-coloured">Multi-coloured</label>
       </div>
       <div class="col-span-1 flex">
-        <input class="input checkbox" type="checkbox" id="multi-coloured" checked autocomplete="off">
+        <input class="input checkbox js-multi-coloured" type="checkbox" id="multi-coloured" checked autocomplete="off">
       </div>
     </li>
     <li class="control">
@@ -94,17 +94,17 @@
         <label class="label" for="scale">Scale</label>
       </div>
       <div class="col-span-1 flex">
-        <input class="input" type="number" id="scale" value="1" min="0.1" max="2.0" step="0.1" autocomplete="off">
+        <input class="input js-scale" type="number" id="scale" value="1" min="0.1" max="2.0" step="0.1" autocomplete="off">
       </div>
     </li>
     <li class="control">
       <div class="col-span-4 flex">
-        <button type="button" class="btn reset">Reset</button>
+        <button type="button" class="btn js-reset">Reset</button>
       </div>
     </li>
-    <li class="control">
+    <li class="control js-close-container">
       <div class="col-span-4 flex">
-        <button type="button" class="btn close">Close Controls</button>
+        <button type="button" class="btn js-close">Close Controls</button>
       </div>
     </li>
   </ul>
