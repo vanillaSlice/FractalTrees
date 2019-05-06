@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/github/license/vanillaSlice/FractalTrees.svg)](LICENSE)
 
 Playing around with Fractal Trees in [p5.js](https://p5js.org/).
-A deployed version can be viewed [here](https://vanillaslice.github.io/FractalTrees/).
+A deployed version can be viewed [here](https://fractaltrees.mikelowe.xyz/).
 
 ## Screenshot
 
