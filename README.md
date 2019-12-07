@@ -1,7 +1,7 @@
 # Fractal Trees
 
 [![Latest Release](https://img.shields.io/github/release/vanillaSlice/FractalTrees.svg)](https://github.com/vanillaSlice/FractalTrees/releases/latest)
-[![Build Status](https://img.shields.io/travis/vanillaSlice/FractalTrees/master.svg)](https://travis-ci.org/vanillaSlice/FractalTrees)
+[![Build Status](https://img.shields.io/travis/com/vanillaSlice/FractalTrees/master.svg)](https://travis-ci.com/vanillaSlice/FractalTrees)
 [![License](https://img.shields.io/github/license/vanillaSlice/FractalTrees.svg)](LICENSE)
 
 Playing around with Fractal Trees in [p5.js](https://p5js.org/).
